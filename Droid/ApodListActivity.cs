@@ -32,11 +32,23 @@ namespace HuePod.Droid
 			_service = new Service();
 
 			await LoadLastPictures();
+
+			WireEvents();
 		}
 
 		void FindViews()
 		{
 			_apodsListView = FindViewById<ListView>(Resource.Id.apodsListView);
+		}
+
+		void WireEvents()
+		{
+			_apodsListView.ItemClick += (sender, e) => 
+			{
+				Intent i = new Intent(this, typeof(ApodDetailActivity));
+				i.PutExtra("date", _apods[e.Position].Date.ToString());
+				StartActivity(i);
+			};
 		}
 
 		async Task LoadLastPictures()

@@ -26,6 +26,7 @@ namespace HuePod.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Splat.Resource.String.library_name = global::HuePod.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Attribute
@@ -66,17 +67,17 @@ namespace HuePod.Droid
 			// aapt resource value: 0x7f060005
 			public const int apodNormalText = 2131099653;
 			
-			// aapt resource value: 0x7f060001
-			public const int apodView = 2131099649;
-			
-			// aapt resource value: 0x7f060000
-			public const int apodsListView = 2131099648;
+			// aapt resource value: 0x7f060003
+			public const int apodsListView = 2131099651;
 			
 			// aapt resource value: 0x7f060002
 			public const int descriptionView = 2131099650;
 			
-			// aapt resource value: 0x7f060003
-			public const int loadApodButton = 2131099651;
+			// aapt resource value: 0x7f060001
+			public const int mainApodView = 2131099649;
+			
+			// aapt resource value: 0x7f060000
+			public const int mainLayout = 2131099648;
 			
 			static Id()
 			{
@@ -92,10 +93,10 @@ namespace HuePod.Droid
 		{
 			
 			// aapt resource value: 0x7f040000
-			public const int ApodMainList = 2130968576;
+			public const int ApodDetail = 2130968576;
 			
 			// aapt resource value: 0x7f040001
-			public const int Main = 2130968577;
+			public const int ApodMainList = 2130968577;
 			
 			// aapt resource value: 0x7f040002
 			public const int NormalApodView = 2130968578;
@@ -129,11 +130,14 @@ namespace HuePod.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f050002
+			public const int app_name = 2131034114;
+			
 			// aapt resource value: 0x7f050001
-			public const int app_name = 2131034113;
+			public const int hello = 2131034113;
 			
 			// aapt resource value: 0x7f050000
-			public const int hello = 2131034112;
+			public const int library_name = 2131034112;
 			
 			static String()
 			{

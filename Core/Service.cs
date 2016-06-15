@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
+using Akavache;
 using HuePod.Nasa;
 using Refit;
+using System.Reactive.Linq;
 
 namespace HuePod
 {
@@ -23,13 +25,19 @@ namespace HuePod
 				BaseAddress = new Uri(Constants.NasaEndpoint)
 			};
 
+			BlobCache.ApplicationName = Constants.AkavacheAppName;
+
 			_api = RestService.For<INasaApi>(client, refitSettings);
 		}
 
 		public async Task<Apod> GetAstronomicPictureOf(DateTime? theDay = null)
 		{
 			var date = theDay.GetValueOrDefault(DateTime.Now);
-			return await _api.GetAstronomicPictureOfSomeDay(date);
+			Func<Task<Apod>> func = () => _api.GetAstronomicPictureOfSomeDay(date);
+
+			var apod = await BlobCache.LocalMachine.GetOrFetchObject("pic" + $"{date:yyyyMMdd}",func);
+
+			return apod;
 		}
 
 		public async Task<List<Apod>> GetLastAstronomicPictures(int days = 7)
