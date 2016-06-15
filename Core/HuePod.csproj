@@ -33,8 +33,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Nasa\Apod.cs" />
     <Compile Include="Nasa\INasaApi.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="Service.cs" />
+    <Compile Include="Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Nasa\" />
