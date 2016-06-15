@@ -16,7 +16,6 @@ namespace HuePod.Droid
 		ImageView _mainApodView;
 		TextView _descriptionView;
 		Button _loadApodButton;
-		LinearLayout _mainLayout;
 
 		Service _service;
 
@@ -35,14 +34,13 @@ namespace HuePod.Droid
 				var date = DateTime.Parse(Intent.Extras.GetString("date"));
 				var apod = await _service.GetAstronomicPictureOf(date);
 				_descriptionView.Text = apod.Explanation;
-				Picasso.With(this).Load(apod.Url).Into(_mainApodView);
+				Picasso.With(this).Load(apod.HdUrl).Into(_mainApodView);
 			}
 		}
 
 		void FindViews()
 		{
 			_mainApodView = FindViewById< ImageView > (Resource.Id.mainApodView);
-			_mainLayout = FindViewById<LinearLayout>(Resource.Id.mainLayout);
 			_descriptionView = FindViewById<TextView>(Resource.Id.descriptionView);
 		}
 	}
