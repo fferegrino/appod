@@ -61,7 +61,11 @@ namespace HuePod.Droid
 
 			view.FindViewById<TextView>(Resource.Id.apodNormalText).Text = apod.Date.ToShortDateString();
 			var image = view.FindViewById<ImageView>(Resource.Id.apodNormalImage);
-			Picasso.With(_context).Load(apod.Url).Into(image);
+			System.Diagnostics.Debug.Write($"{apod.Date:yyyy/MM/dd} / {apod.MediaType} - {apod.Url}");
+			if (apod.MediaType == "image")
+			{
+				Picasso.With(_context).Load(apod.Url).Into(image);
+			}
 
 			return view;
 		}

@@ -32,6 +32,30 @@ namespace HuePod.Droid
 		public partial class Attribute
 		{
 			
+			// aapt resource value: 0x7f010004
+			public const int horizontal_origin = 2130771972;
+			
+			// aapt resource value: 0x7f010007
+			public const int max_constant_translation = 2130771975;
+			
+			// aapt resource value: 0x7f010001
+			public const int max_pitch = 2130771969;
+			
+			// aapt resource value: 0x7f010002
+			public const int max_roll = 2130771970;
+			
+			// aapt resource value: 0x7f010005
+			public const int orientation_mode = 2130771973;
+			
+			// aapt resource value: 0x7f010000
+			public const int sensor_sampling_period = 2130771968;
+			
+			// aapt resource value: 0x7f010006
+			public const int translate_mode = 2130771974;
+			
+			// aapt resource value: 0x7f010003
+			public const int vertical_origin = 2130771971;
+			
 			static Attribute()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -42,11 +66,33 @@ namespace HuePod.Droid
 			}
 		}
 		
+		public partial class Dimension
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int default_margin = 2131099648;
+			
+			static Dimension()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Dimension()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
 			// aapt resource value: 0x7f020000
 			public const int gradient = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int london_wide = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int singapore_tall = 2130837506;
 			
 			static Drawable()
 			{
@@ -61,26 +107,53 @@ namespace HuePod.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060005
-			public const int apodNormalImage = 2131099653;
+			// aapt resource value: 0x7f070003
+			public const int Absolute = 2131165187;
 			
-			// aapt resource value: 0x7f060006
-			public const int apodNormalText = 2131099654;
+			// aapt resource value: 0x7f070005
+			public const int Constant = 2131165189;
 			
-			// aapt resource value: 0x7f060004
-			public const int apodsListView = 2131099652;
+			// aapt resource value: 0x7f070006
+			public const int Proportional = 2131165190;
 			
-			// aapt resource value: 0x7f060003
-			public const int descriptionView = 2131099651;
+			// aapt resource value: 0x7f070004
+			public const int Relative = 2131165188;
 			
-			// aapt resource value: 0x7f060001
-			public const int mainApodView = 2131099649;
+			// aapt resource value: 0x7f07000e
+			public const int apodNormalImage = 2131165198;
 			
-			// aapt resource value: 0x7f060000
-			public const int mainLayout = 2131099648;
+			// aapt resource value: 0x7f07000f
+			public const int apodNormalText = 2131165199;
 			
-			// aapt resource value: 0x7f060002
-			public const int scrollView1 = 2131099650;
+			// aapt resource value: 0x7f07000d
+			public const int apodsListView = 2131165197;
+			
+			// aapt resource value: 0x7f07000c
+			public const int descriptionView = 2131165196;
+			
+			// aapt resource value: 0x7f070000
+			public const int fast = 2131165184;
+			
+			// aapt resource value: 0x7f07000a
+			public const int mainApodView = 2131165194;
+			
+			// aapt resource value: 0x7f070009
+			public const int mainLayout = 2131165193;
+			
+			// aapt resource value: 0x7f070001
+			public const int normal = 2131165185;
+			
+			// aapt resource value: 0x7f07000b
+			public const int scrollView1 = 2131165195;
+			
+			// aapt resource value: 0x7f070002
+			public const int slow = 2131165186;
+			
+			// aapt resource value: 0x7f070007
+			public const int windowView1 = 2131165191;
+			
+			// aapt resource value: 0x7f070008
+			public const int windowView2 = 2131165192;
 			
 			static Id()
 			{
@@ -96,13 +169,16 @@ namespace HuePod.Droid
 		{
 			
 			// aapt resource value: 0x7f040000
-			public const int ApodDetail = 2130968576;
+			public const int activity_demo = 2130968576;
 			
 			// aapt resource value: 0x7f040001
-			public const int ApodMainList = 2130968577;
+			public const int ApodDetail = 2130968577;
 			
 			// aapt resource value: 0x7f040002
-			public const int NormalApodView = 2130968578;
+			public const int ApodMainList = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int NormalApodView = 2130968579;
 			
 			static Layout()
 			{
@@ -136,6 +212,9 @@ namespace HuePod.Droid
 			// aapt resource value: 0x7f050002
 			public const int app_name = 2131034114;
 			
+			// aapt resource value: 0x7f050003
+			public const int content_description = 2131034115;
+			
 			// aapt resource value: 0x7f050001
 			public const int hello = 2131034113;
 			
@@ -148,6 +227,54 @@ namespace HuePod.Droid
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] WindowView = new int[]
+			{
+					2130771968,
+					2130771969,
+					2130771970,
+					2130771971,
+					2130771972,
+					2130771973,
+					2130771974,
+					2130771975};
+			
+			// aapt resource value: 4
+			public const int WindowView_horizontal_origin = 4;
+			
+			// aapt resource value: 7
+			public const int WindowView_max_constant_translation = 7;
+			
+			// aapt resource value: 1
+			public const int WindowView_max_pitch = 1;
+			
+			// aapt resource value: 2
+			public const int WindowView_max_roll = 2;
+			
+			// aapt resource value: 5
+			public const int WindowView_orientation_mode = 5;
+			
+			// aapt resource value: 0
+			public const int WindowView_sensor_sampling_period = 0;
+			
+			// aapt resource value: 6
+			public const int WindowView_translate_mode = 6;
+			
+			// aapt resource value: 3
+			public const int WindowView_vertical_origin = 3;
+			
+			static Styleable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Styleable()
 			{
 			}
 		}

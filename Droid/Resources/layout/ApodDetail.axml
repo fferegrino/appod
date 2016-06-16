@@ -4,12 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainLayout">
+    <HuePod.Droid.Custom.WindowView
+        android:id="@+id/mainApodView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:contentDescription="@string/content_description" />
+<!--
     <ImageView
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/mainApodView"
         android:scaleType="center" />
+	-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -5,6 +5,7 @@ using Square.Picasso;
 using System;
 using Android.Graphics;
 using Android.Graphics.Drawables;
+using Android.Views;
 
 namespace HuePod.Droid
 {
@@ -23,6 +24,15 @@ namespace HuePod.Droid
 		{
 			base.OnCreate(savedInstanceState);
 
+			View decorView = Window.DecorView;
+			var uiOptions = (int)decorView.SystemUiVisibility;
+			var newUiOptions = (int)uiOptions;
+			newUiOptions |= (int)SystemUiFlags.LowProfile;
+			newUiOptions |= (int)SystemUiFlags.Fullscreen;
+			newUiOptions |= (int)SystemUiFlags.HideNavigation;
+			newUiOptions |= (int)SystemUiFlags.Immersive;
+			decorView.SystemUiVisibility = (StatusBarVisibility)newUiOptions;
+
 			SetContentView(Resource.Layout.ApodDetail);
 
 			FindViews();
@@ -34,7 +44,7 @@ namespace HuePod.Droid
 				var date = DateTime.Parse(Intent.Extras.GetString("date"));
 				var apod = await _service.GetAstronomicPictureOf(date);
 				_descriptionView.Text = apod.Explanation;
-				Picasso.With(this).Load(apod.HdUrl).Into(_mainApodView);
+				Picasso.With(this).Load(apod.Url).Into(_mainApodView);
 			}
 		}
 
