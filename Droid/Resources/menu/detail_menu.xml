@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/hide_ui_menu"
+          android:icon="@drawable/ic_visibility_white_48dp"
+          android:title="Hide UI" 
+			android:showAsAction="always"/> 
+</menu>

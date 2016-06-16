@@ -90,7 +90,6 @@
     <Compile Include="Custom\Snsr\ExponentialSmoothingFilter.cs" />
     <Compile Include="Custom\Snsr\IFilter.cs" />
     <Compile Include="Custom\Snsr\TiltSensor.cs" />
-    <Compile Include="DemoActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -99,22 +98,31 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\ApodDetail.axml" />
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\layout\apod_detail_activity.axml" />
+    <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\layout\ApodMainList.axml" />
-    <AndroidResource Include="Resources\layout\NormalApodView.axml" />
+    <AndroidResource Include="Resources\layout\apod_list_activity.axml" />
+    <AndroidResource Include="Resources\layout\image_apod_item.axml" />
     <AndroidResource Include="Resources\drawable\gradient.xml" />
     <AndroidResource Include="Resources\values\attrs.xml" />
-    <AndroidResource Include="Resources\layout-land\activity_demo.axml" />
-    <AndroidResource Include="Resources\layout\activity_demo.axml" />
     <AndroidResource Include="Resources\values\dimens.xml" />
-    <AndroidResource Include="Resources\drawable-nodpi\london_wide.jpg" />
-    <AndroidResource Include="Resources\drawable-nodpi\singapore_tall.jpg" />
+    <AndroidResource Include="Resources\layout\other_apod_item.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_event_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_visibility_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_event_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_visibility_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_event_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_visibility_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_event_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_visibility_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_event_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_visibility_white_48dp.png" />
+    <AndroidResource Include="Resources\menu\main_menu.xml" />
+    <AndroidResource Include="Resources\menu\detail_menu.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Adapters\" />
@@ -123,6 +131,7 @@
     <Folder Include="Custom\Snsr\" />
     <Folder Include="Resources\layout-land\" />
     <Folder Include="Resources\drawable-nodpi\" />
+    <Folder Include="Resources\menu\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\HuePod.csproj">

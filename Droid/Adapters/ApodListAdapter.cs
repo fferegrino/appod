@@ -11,6 +11,9 @@ namespace HuePod.Droid
     {
         private readonly Activity _context;
         private readonly Apod[] _items;
+
+		const int ImageView = 1;
+		const int OtherView = 2;
         //ImageLoader _loader;
 
         public ApodListAdapter(Activity context, Apod[] items)
@@ -21,12 +24,12 @@ namespace HuePod.Droid
         }
 
 
-        //public override int GetItemViewType(int position)
-        //{
-        //	return base.GetItemViewType(position);
-        //}
+   //     public override int GetItemViewType(int position)
+   //     {
+			//return _items[position].MediaType.Equals("image") ? ImageView : OtherView;
+   //     }
 
-        //public override int ViewTypeCount => 2;
+   //     public override int ViewTypeCount => 2;
 
         public override Apod this[int position]
         {
@@ -45,14 +48,17 @@ namespace HuePod.Droid
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
+
             var view = convertView;
             if (view == null)
             {
-                view = _context.LayoutInflater.Inflate(Resource.Layout.NormalApodView, null);
+				var layoutInflater = _context.LayoutInflater;
+				//var type = GetItemViewType(position);
+					view = layoutInflater.Inflate(Resource.Layout.image_apod_item, null);
             }
 
-            var apod = _items[position];
 
+			var apod = _items[position];
             view.FindViewById<TextView>(Resource.Id.apodNormalText).Text = apod.Date.ToShortDateString();
             var image = view.FindViewById<ImageView>(Resource.Id.apodNormalImage);
             Debug.Write($"{apod.Date:yyyy/MM/dd} / {apod.MediaType} - {apod.Url}");

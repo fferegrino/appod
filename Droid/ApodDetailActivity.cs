@@ -11,27 +11,19 @@ namespace HuePod.Droid
     public class ApodDetailActivity : Activity
     {
         private TextView _descriptionView;
-        private Button _loadApodButton;
+		TextView _copyrightView;
 
         private ImageView _mainApodView;
 
         private Service _service;
-        private int count = 1;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            var decorView = Window.DecorView;
-            var uiOptions = (int) decorView.SystemUiVisibility;
-            var newUiOptions = uiOptions;
-            newUiOptions |= (int) SystemUiFlags.LowProfile;
-            newUiOptions |= (int) SystemUiFlags.Fullscreen;
-            newUiOptions |= (int) SystemUiFlags.HideNavigation;
-            newUiOptions |= (int) SystemUiFlags.Immersive;
-            decorView.SystemUiVisibility = (StatusBarVisibility) newUiOptions;
+			MakeZenMode();
 
-            SetContentView(Resource.Layout.ApodDetail);
+			SetContentView(Resource.Layout.apod_detail_activity);
 
             FindViews();
 
@@ -42,14 +34,49 @@ namespace HuePod.Droid
                 var date = DateTime.Parse(Intent.Extras.GetString("date"));
                 var apod = await _service.GetAstronomicPictureOf(date);
                 _descriptionView.Text = apod.Explanation;
+				ActionBar.Title = apod.Date.ToShortDateString();
+				if (apod.Copyright != null)
+				{
+					_copyrightView.Text = apod.Copyright;
+					_copyrightView.Visibility = ViewStates.Visible;
+				}
                 Picasso.With(this).Load(apod.Url).Into(_mainApodView);
             }
         }
 
-        private void FindViews()
+		private void FindViews()
         {
             _mainApodView = FindViewById<ImageView>(Resource.Id.mainApodView);
             _descriptionView = FindViewById<TextView>(Resource.Id.descriptionView);
+			_copyrightView = FindViewById<TextView>(Resource.Id.copyrightView);
         }
+
+		void MakeZenMode()
+		{
+			var decorView = Window.DecorView;
+			var uiOptions = (int)decorView.SystemUiVisibility;
+			var newUiOptions = uiOptions;
+			newUiOptions |= (int)SystemUiFlags.LowProfile;
+			newUiOptions |= (int)SystemUiFlags.Fullscreen;
+			newUiOptions |= (int)SystemUiFlags.HideNavigation;
+			newUiOptions |= (int)SystemUiFlags.Immersive;
+			decorView.SystemUiVisibility = (StatusBarVisibility)newUiOptions;
+		}
+
+		public override bool OnCreateOptionsMenu(Android.Views.IMenu menu)
+		{
+			MenuInflater.Inflate(Resource.Menu.detail_menu, menu);
+			return true;
+		}
+
+		public override bool OnOptionsItemSelected(Android.Views.IMenuItem item)
+		{
+			if (item.ItemId == Resource.Id.hide_ui_menu)
+			{
+				MakeZenMode();
+				return true;
+			}
+			return base.OnOptionsItemSelected(item);
+		}
     }
 }

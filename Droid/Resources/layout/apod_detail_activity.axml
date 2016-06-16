@@ -11,24 +11,23 @@
         android:layout_weight="1"
         android:src="@android:drawable/ic_menu_gallery"
         android:contentDescription="@string/content_description" />
-<!--
-    <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/mainApodView"
-        android:scaleType="center" />
-	-->
-    <ScrollView
+        android:id="@+id/descriptionView"
+        android:padding="5dp"
+        android:background="@drawable/gradient"
+        android:layout_alignBottom="@id/mainApodView" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/mainApodView"
-        android:id="@+id/scrollView1">
-        <TextView
-            android:text="Medium Text"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/descriptionView" />
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:id="@+id/copyrightView"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:background="#000"
+        android:layout_alignTop="@id/mainApodView" />
 </RelativeLayout>
