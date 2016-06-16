@@ -1,60 +1,55 @@
-﻿using Android.App;
-using Android.Widget;
+﻿using System;
+using Android.App;
 using Android.OS;
-using Square.Picasso;
-using System;
-using Android.Graphics;
-using Android.Graphics.Drawables;
 using Android.Views;
+using Android.Widget;
+using Square.Picasso;
 
 namespace HuePod.Droid
 {
-	[Activity(Label = "POD detail")]
-	public class ApodDetailActivity : Activity
-	{
-		int count = 1;
+    [Activity(Label = "POD detail")]
+    public class ApodDetailActivity : Activity
+    {
+        private TextView _descriptionView;
+        private Button _loadApodButton;
 
-		ImageView _mainApodView;
-		TextView _descriptionView;
-		Button _loadApodButton;
+        private ImageView _mainApodView;
 
-		Service _service;
+        private Service _service;
+        private int count = 1;
 
-		protected override async void OnCreate(Bundle savedInstanceState)
-		{
-			base.OnCreate(savedInstanceState);
+        protected override async void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
 
-			View decorView = Window.DecorView;
-			var uiOptions = (int)decorView.SystemUiVisibility;
-			var newUiOptions = (int)uiOptions;
-			newUiOptions |= (int)SystemUiFlags.LowProfile;
-			newUiOptions |= (int)SystemUiFlags.Fullscreen;
-			newUiOptions |= (int)SystemUiFlags.HideNavigation;
-			newUiOptions |= (int)SystemUiFlags.Immersive;
-			decorView.SystemUiVisibility = (StatusBarVisibility)newUiOptions;
+            var decorView = Window.DecorView;
+            var uiOptions = (int) decorView.SystemUiVisibility;
+            var newUiOptions = uiOptions;
+            newUiOptions |= (int) SystemUiFlags.LowProfile;
+            newUiOptions |= (int) SystemUiFlags.Fullscreen;
+            newUiOptions |= (int) SystemUiFlags.HideNavigation;
+            newUiOptions |= (int) SystemUiFlags.Immersive;
+            decorView.SystemUiVisibility = (StatusBarVisibility) newUiOptions;
 
-			SetContentView(Resource.Layout.ApodDetail);
+            SetContentView(Resource.Layout.ApodDetail);
 
-			FindViews();
+            FindViews();
 
-			_service = new Service();
+            _service = new Service();
 
-			if (Intent.Extras != null)
-			{
-				var date = DateTime.Parse(Intent.Extras.GetString("date"));
-				var apod = await _service.GetAstronomicPictureOf(date);
-				_descriptionView.Text = apod.Explanation;
-				Picasso.With(this).Load(apod.Url).Into(_mainApodView);
-			}
-		}
+            if (Intent.Extras != null)
+            {
+                var date = DateTime.Parse(Intent.Extras.GetString("date"));
+                var apod = await _service.GetAstronomicPictureOf(date);
+                _descriptionView.Text = apod.Explanation;
+                Picasso.With(this).Load(apod.Url).Into(_mainApodView);
+            }
+        }
 
-		void FindViews()
-		{
-			_mainApodView = FindViewById< ImageView > (Resource.Id.mainApodView);
-			_descriptionView = FindViewById<TextView>(Resource.Id.descriptionView);
-		}
-	}
-
+        private void FindViews()
+        {
+            _mainApodView = FindViewById<ImageView>(Resource.Id.mainApodView);
+            _descriptionView = FindViewById<TextView>(Resource.Id.descriptionView);
+        }
+    }
 }
-
-

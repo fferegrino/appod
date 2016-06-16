@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-	<string name="hello">Hello World, Click Me!</string>
-	<string name="app_name">HuePod.Droid</string>
-	 <string name="content_description">Window image</string>
+  <string name="hello">Hello World, Click Me!</string>
+  <string name="app_name">HuePod.Droid</string>
+  <string name="content_description">Window image</string>
 </resources>
