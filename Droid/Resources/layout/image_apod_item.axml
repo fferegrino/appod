@@ -16,7 +16,7 @@
         android:id="@+id/apodViewImage"
         android:layout_width="fill_parent"
         android:src="@android:drawable/ic_media_play"
-        android:paddingTop="10dp"
+        android:paddingTop="5dp"
         android:paddingBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

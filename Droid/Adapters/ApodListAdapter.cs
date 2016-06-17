@@ -10,7 +10,8 @@ namespace HuePod.Droid
 {
     public class ApodListAdapter : BaseAdapter<Apod>
     {
-        public static Typeface CustomFont;
+		public static Typeface CustomFont;
+		public static Typeface CustomFontBold;
 
         private readonly Activity _context;
         private readonly Apod[] _items;
@@ -25,7 +26,8 @@ namespace HuePod.Droid
             _context = context;
             if (CustomFont == null)
             {
-                CustomFont = Typeface.CreateFromAsset(context.Assets, "fonts/Tinos-Regular.ttf");
+				CustomFont = Typeface.CreateFromAsset(context.Assets, "fonts/Tinos-Regular.ttf");
+				CustomFontBold = Typeface.CreateFromAsset(context.Assets, "fonts/Tinos-Bold.ttf");
             }
         }
 
@@ -64,14 +66,18 @@ namespace HuePod.Droid
 
             var apodViewTitleText = view.FindViewById<TextView>(Resource.Id.apodViewTitleText);
             apodViewTitleText.Text = apod.Title;
-            apodViewTitleText.Typeface = CustomFont;
+            apodViewTitleText.Typeface = CustomFontBold;
 
             var image = view.FindViewById<ImageView>(Resource.Id.apodViewImage);
             Debug.Write($"{apod.Date:yyyy/MM/dd} / {apod.MediaType} - {apod.Url}");
-            if (apod.MediaType == "image")
-            {
-                Picasso.With(_context).Load(apod.Url).Into(image);
-            }
+			if (apod.MediaType == "image")
+			{
+				Picasso.With(_context).Load(apod.Url).Into(image);
+			}
+			else if (apod.MediaType == "video")
+			{
+				Picasso.With(_context).Load(Resource.Drawable.video).Into(image);
+			}
 
             return view;
         }

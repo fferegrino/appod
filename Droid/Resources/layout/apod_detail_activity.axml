@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:src="@android:drawable/ic_menu_gallery"
+        android:src="@drawable/messmara_gitto_big"
         android:contentDescription="@string/content_description" />
     <TextView
-        android:text="Medium Text"
+        android:text="Description"
         android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,7 +23,7 @@
         android:textColor="#ffffff"
         android:layout_below="@+id/copyrightView" />
     <TextView
-        android:text="Medium Text"
+        android:text="Copyright"
         android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

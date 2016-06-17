@@ -12,7 +12,7 @@ namespace HuePod.Droid
 	[Activity(Label = "Huepod", 
         MainLauncher = true, 
         Icon = "@mipmap/icon", 
-        Theme = "@style/MyCustomTheme")]
+        Theme = "@style/ApodTheme")]
 	public class ApodListActivity : Activity
     { 
 		private List<Apod> _apods;
@@ -22,6 +22,8 @@ namespace HuePod.Droid
 		protected override async void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
+
+			Title = "Astronomy Picture of the Day";
 
 			SetContentView(Resource.Layout.apod_list_activity);
 
@@ -83,17 +85,18 @@ namespace HuePod.Droid
 				var today = DateTime.Today;
 				var picker = new DatePickerDialog(this, (s, a) =>
 				{
+					System.Diagnostics.Debug.WriteLine($"{a.Date:dd/MM/yyyy} - {today:dd/MM/yyyy}");
 					if (a.Date <= today)
 					{
 						StartDetailActivity(a.Date);
 					}
 					else 
 					{
-						var t = Toast.MakeText(this, "Oh! I can't foresee the future", ToastLength.Short);
+						var t = Toast.MakeText(this, "Oh! I can't predict the future", ToastLength.Short);
 						t.Show();
 					}
 
-				}, today.Year, today.Month, today.Day);
+				}, today.Year, today.Month - 1, today.Day);
 				picker.Show();
 				return true;
 			}

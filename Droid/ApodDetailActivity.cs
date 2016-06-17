@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Android.App;
+using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -7,10 +9,12 @@ using Square.Picasso;
 
 namespace HuePod.Droid
 {
-    [Activity(Label = "POD detail")]
+    [Activity(Label = "POD detail",
+		Theme = "@style/ApodTheme")]
     public class ApodDetailActivity : Activity
     {
-        
+
+		public static Typeface CustomFont;
         private TextView _descriptionView;
 		TextView _copyrightView;
 
@@ -22,27 +26,23 @@ namespace HuePod.Droid
         {
             base.OnCreate(savedInstanceState);
 
-			MakeZenMode();
-
 			SetContentView(Resource.Layout.apod_detail_activity);
 
             FindViews();
 
             _service = new Service();
 
+			if (CustomFont == null)
+			{
+				CustomFont = Typeface.CreateFromAsset(Assets, "fonts/Tinos-Regular.ttf");
+			}
+
             if (Intent.Extras != null)
             {
-                var date = DateTime.Parse(Intent.Extras.GetString("date"));
-                var apod = await _service.GetAstronomicPictureOf(date);
-                _descriptionView.Text = apod.Explanation;
-				ActionBar.Title = apod.Date.ToShortDateString();
-				if (apod.Copyright != null)
-				{
-					_copyrightView.Text = apod.Copyright;
-					_copyrightView.Visibility = ViewStates.Visible;
-				}
-                Picasso.With(this).Load(apod.Url).Into(_mainApodView);
+				await LoadApod(Intent.Extras);
             }
+
+			Window.DecorView.SystemUiVisibilityChange += DecorView_SystemUiVisibilityChange;
         }
 
 		private void FindViews()
@@ -52,16 +52,57 @@ namespace HuePod.Droid
 			_copyrightView = FindViewById<TextView>(Resource.Id.copyrightView);
         }
 
+
+		async Task LoadApod(Bundle extras)
+		{
+			var date = DateTime.Parse(extras.GetString("date"));
+			var apod = await _service.GetAstronomicPictureOf(date);
+
+			_descriptionView.Text = apod.Explanation;
+			_descriptionView.Typeface = CustomFont;
+
+			ActionBar.Title = apod.Date.ToShortDateString();
+			if (apod.Copyright != null)
+			{
+				_copyrightView.Text = "Copyright: " + apod.Copyright;
+				_copyrightView.Typeface = CustomFont;
+				_copyrightView.Visibility = ViewStates.Visible;
+			}
+			else
+			{
+				_copyrightView.Visibility = ViewStates.Invisible;
+			}
+
+			if (apod.MediaType == "image")
+			{
+				Picasso.With(this).Load(apod.Url).Into(_mainApodView);
+			}
+		}
+
 		void MakeZenMode()
 		{
 			var decorView = Window.DecorView;
-			var uiOptions = (int)decorView.SystemUiVisibility;
-			var newUiOptions = uiOptions;
-			newUiOptions |= (int)SystemUiFlags.LowProfile;
-			newUiOptions |= (int)SystemUiFlags.Fullscreen;
-			newUiOptions |= (int)SystemUiFlags.HideNavigation;
-			newUiOptions |= (int)SystemUiFlags.Immersive;
-			decorView.SystemUiVisibility = (StatusBarVisibility)newUiOptions;
+
+			var flags = SystemUiFlags.LayoutStable
+									 | SystemUiFlags.LayoutHideNavigation
+									 | SystemUiFlags.LayoutFullscreen
+									 | SystemUiFlags.HideNavigation
+									 | SystemUiFlags.Fullscreen
+									 | SystemUiFlags.Immersive;
+			
+			decorView.SystemUiVisibility = (StatusBarVisibility)flags;
+			_descriptionView.Visibility = ViewStates.Invisible;
+		}
+
+
+		void DecorView_SystemUiVisibilityChange(object sender, View.SystemUiVisibilityChangeEventArgs e)
+		{
+			if (e.Visibility == StatusBarVisibility.Visible)
+			{
+				_descriptionView.Visibility = ViewStates.Visible;
+				var flags = SystemUiFlags.LayoutStable;
+				Window.DecorView.SystemUiVisibility = (StatusBarVisibility)flags;
+			}
 		}
 
 		public override bool OnCreateOptionsMenu(Android.Views.IMenu menu)
@@ -79,5 +120,6 @@ namespace HuePod.Droid
 			}
 			return base.OnOptionsItemSelected(item);
 		}
-    }
+
+	}
 }
