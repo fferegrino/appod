@@ -19,15 +19,18 @@
         android:id="@+id/descriptionView"
         android:padding="5dp"
         android:background="@drawable/gradient"
-        android:layout_alignBottom="@id/mainApodView" />
+        android:gravity="bottom"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/copyrightView" />
     <TextView
         android:text="Medium Text"
         android:textAppearance="@android:style/TextAppearance.Material.Body2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/copyrightView"
-        android:layout_alignParentBottom="true"
         android:padding="5dp"
-        android:background="#000"
-        android:layout_alignTop="@id/mainApodView" />
+        android:background="#a0000000"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff" />
 </RelativeLayout>

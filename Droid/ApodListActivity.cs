@@ -9,9 +9,12 @@ using HuePod.Nasa;
 
 namespace HuePod.Droid
 {
-	[Activity(Label = "Huepod", MainLauncher = true, Icon = "@mipmap/icon")]
+	[Activity(Label = "Huepod", 
+        MainLauncher = true, 
+        Icon = "@mipmap/icon", 
+        Theme = "@style/MyCustomTheme")]
 	public class ApodListActivity : Activity
-	{
+    { 
 		private List<Apod> _apods;
 		private ListView _apodsListView;
 		private Service _service;

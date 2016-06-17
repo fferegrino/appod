@@ -10,6 +10,7 @@ namespace HuePod.Droid
     [Activity(Label = "POD detail")]
     public class ApodDetailActivity : Activity
     {
+        
         private TextView _descriptionView;
 		TextView _copyrightView;
 
