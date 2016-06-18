@@ -4,4 +4,14 @@
   <string name="hello">Hello World, Click Me!</string>
   <string name="app_name">HuePod.Droid</string>
   <string name="content_description">Window image</string>
+<string name="large_app_title">Astronomy Picture of the Day</string>
+	<string name="select_day_menu">Select day</string>
+	<string name="about_page_menu">About</string>
+	<string name="hide_ui_menu">Hide UI</string>
+	<string name="save_apod_menu">Save APOD</string>
+	<string name="author_text">
+<![CDATA[
+<b>Author :</b> <span style="color: #0000ff; text-decoration: underline;">Antonio Feregrino</span>
+]]>
+</string>
 </resources>
