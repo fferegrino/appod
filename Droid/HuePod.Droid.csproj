@@ -96,6 +96,12 @@
       <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Design">
+      <HintPath>..\packages\Xamarin.Android.Support.Design.23.3.0\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApodDetailActivity.cs" />
@@ -108,6 +114,7 @@
     <Compile Include="Custom\Snsr\ExponentialSmoothingFilter.cs" />
     <Compile Include="Custom\Snsr\IFilter.cs" />
     <Compile Include="Custom\Snsr\TiltSensor.cs" />
+    <Compile Include="ApodAboutActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -164,6 +171,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\video.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\video.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\video.png" />
+    <AndroidResource Include="Resources\layout\apod_about_activity.axml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

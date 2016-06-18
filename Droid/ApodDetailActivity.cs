@@ -172,8 +172,8 @@ namespace HuePod.Droid
 
         public void OnBitmapLoaded(Bitmap p0, Picasso.LoadedFrom p1)
         {
-            var fileName = $"{_date:ddMMyyyy}.jpg";
-
+			var fileName = $"{_date:yyyyMMdd}.jpg";
+			System.Diagnostics.Debug.WriteLine($"Downloading to {fileName}");
 
             var apodDir = System.IO.Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "APOD");
             var dir = new File(apodDir);
@@ -182,11 +182,14 @@ namespace HuePod.Droid
             {
                 dir.Mkdirs();
             }
+
+			System.Diagnostics.Debug.WriteLine($"Directory: {dir.AbsolutePath}");
             var filePath = System.IO.Path.Combine(apodDir, fileName);
-            var stream = new FileStream(filePath, FileMode.Create);
-            p0.Compress(Bitmap.CompressFormat.Jpeg, 90, stream);
-            stream.Flush();
-            stream.Close();
+			using (var stream = new FileStream(filePath, FileMode.Create))
+			{
+				p0.Compress(Bitmap.CompressFormat.Jpeg, 90, stream);
+				System.Diagnostics.Debug.WriteLine($"Compressed: {dir.AbsolutePath}");
+			}
             Toast.MakeText(_context, $"Saved to {filePath}", ToastLength.Short).Show();
         }
 
