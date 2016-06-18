@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/hide_ui_menu"
-          android:icon="@drawable/fullscreen"
-          android:title="Hide UI" 
-			android:showAsAction="always"/> 
-    <item android:id="@+id/save_apod"
-          android:icon="@drawable/download"
-          android:title="Save APOD" 
-			android:showAsAction="always"/> 
+	<item android:id="@+id/hide_ui_menu" 
+		android:icon="@drawable/fullscreen" 
+		android:title="@string/hide_ui_menu" 
+		android:showAsAction="always" />
+	<item android:id="@+id/save_apod" 
+		android:icon="@drawable/download" 
+		android:title="@string/save_apod_menu" 
+		android:showAsAction="always" />
 </menu>
