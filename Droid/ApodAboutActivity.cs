@@ -14,7 +14,7 @@ using Android.Widget;
 
 namespace HuePod.Droid
 {
-	[Activity(Label = "ApodAboutActivity",
+	[Activity(Label = "About",
 		Theme = "@style/ApodTheme")]
 	public class ApodAboutActivity : Activity
 	{
@@ -22,6 +22,8 @@ namespace HuePod.Droid
 
 		TextView _aboutTextView;
 		TextView _authorTextView;
+		TextView _sourceTextView;
+		TextView _titleTextView;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -38,14 +40,31 @@ namespace HuePod.Droid
 
 			_aboutTextView.Typeface = CustomFont;
 			_authorTextView.Typeface = CustomFont;
+			_titleTextView.Typeface = CustomFont;
+			_sourceTextView.Typeface = CustomFont;
 
-			_authorTextView.TextFormatted = Android.Text.Html.FromHtml(Resources.GetString( Resource.String.author_text));
+			_sourceTextView.Click += (sender, e) =>
+			{
+				StartActivity(
+					new Intent(Intent.ActionView, Android.Net.Uri.Parse("https://github.com/fferegrino/appod")));
+			};
+
+			_authorTextView.Click += (sender, e) =>
+			{
+				StartActivity(
+					new Intent(Intent.ActionView, Android.Net.Uri.Parse("http://thatcsharpguy.com")));
+			};
+
+			_authorTextView.TextFormatted = Android.Text.Html.FromHtml(Resources.GetString(Resource.String.author_text));
+			_sourceTextView.TextFormatted = Android.Text.Html.FromHtml(Resources.GetString(Resource.String.source_code_text));
 		}
 
 		void FindViews()
 		{
 			_aboutTextView = FindViewById<TextView>(Resource.Id.aboutTextView);
 			_authorTextView = FindViewById<TextView>(Resource.Id.authorTextView);
+			_titleTextView = FindViewById<TextView>(Resource.Id.titleTextView);
+			_sourceTextView = FindViewById<TextView>(Resource.Id.sourceTextView);
 		}
 }
 }

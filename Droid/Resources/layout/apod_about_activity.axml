@@ -2,18 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/default_margin"
+    android:showDividers="middle"
+    android:divider="@drawable/empty_tall_divider"
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/large_app_title"
+        android:id="@+id/titleTextView"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/about_text"
         android:id="@+id/aboutTextView"
         android:gravity="center" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Medium Text"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size"
         android:id="@+id/authorTextView"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medium Text"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/text_size"
+        android:id="@+id/sourceTextView"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

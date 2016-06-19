@@ -102,6 +102,24 @@
     <Reference Include="Xamarin.Android.Support.Design">
       <HintPath>..\packages\Xamarin.Android.Support.Design.23.3.0\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.0\lib\MonoAndroid10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.0\lib\MonoAndroid10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="AndHUD">
+      <HintPath>..\packages\AndHUD.1.2.0\lib\MonoAndroid\AndHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.Support.Android">
+      <HintPath>..\packages\Acr.Support.2.0.2\lib\MonoAndroid10\Acr.Support.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs">
+      <HintPath>..\packages\Acr.UserDialogs.5.2.2\lib\MonoAndroid10\Acr.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface">
+      <HintPath>..\packages\Acr.UserDialogs.5.2.2\lib\MonoAndroid10\Acr.UserDialogs.Interface.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApodDetailActivity.cs" />
@@ -141,9 +159,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\apod_list_activity.axml" />
     <AndroidResource Include="Resources\layout\image_apod_item.axml" />
-    <AndroidResource Include="Resources\drawable\gradient.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\values\attrs.xml" />
     <AndroidResource Include="Resources\values\dimens.xml">
       <SubType>Designer</SubType>
@@ -172,6 +187,8 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\video.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\video.png" />
     <AndroidResource Include="Resources\layout\apod_about_activity.axml" />
+    <AndroidResource Include="Resources\drawable\empty_tall_divider.xml" />
+    <AndroidResource Include="Resources\drawable\gradient.xml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

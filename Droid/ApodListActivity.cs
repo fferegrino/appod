@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -22,6 +23,8 @@ namespace HuePod.Droid
 		protected override async void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
+
+			UserDialogs.Init(this);
 
 			Title = "Astronomy Picture of the Day";
 
@@ -98,6 +101,13 @@ namespace HuePod.Droid
 
 				}, today.Year, today.Month - 1, today.Day);
 				picker.Show();
+				return true;
+			}
+
+			if (item.ItemId == Resource.Id.view_about_menu)
+			{
+				var i = new Intent(this, typeof(ApodAboutActivity));
+				StartActivity(i);
 				return true;
 			}
 			return base.OnOptionsItemSelected(item);

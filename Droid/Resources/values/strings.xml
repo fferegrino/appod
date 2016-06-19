@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <resources>
-  <string name="hello">Hello World, Click Me!</string>
-  <string name="app_name">HuePod.Droid</string>
-  <string name="content_description">Window image</string>
-<string name="large_app_title">Astronomy Picture of the Day</string>
+	<string name="hello">Hello World, Click Me!</string>
+	<string name="app_name">HuePod.Droid</string>
+	<string name="content_description">Window image</string>
+	<string name="large_app_title">Astronomy Picture of the Day</string>
 	<string name="select_day_menu">Select day</string>
 	<string name="about_page_menu">About</string>
 	<string name="hide_ui_menu">Hide UI</string>
 	<string name="save_apod_menu">Save APOD</string>
-	<string name="author_text">
-<![CDATA[
-<b>Author :</b> <span style="color: #0000ff; text-decoration: underline;">Antonio Feregrino</span>
-]]>
-</string>
+	<string name="about_text">Appod does not require explanation, with it you can see the latest APODs or choose a day and see the APOD for that day.</string>
+	<string name="author_text"><![CDATA[
+<b>Author:</b> <font color="#0000ff"><u>Antonio Feregrino</u></font>
+]]></string>
+	<string name="source_code_text"><![CDATA[
+<b>Code:</b> <font color="#0000ff"><u>GitHub</u></font>
+]]></string>
 </resources>
