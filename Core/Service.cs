@@ -7,6 +7,7 @@ using Akavache;
 using HuePod.Nasa;
 using Refit;
 using System.Reactive.Linq;
+using Plugin.Connectivity;
 
 namespace HuePod
 {
@@ -30,6 +31,11 @@ namespace HuePod
 			_api = RestService.For<INasaApi>(client, refitSettings);
 		}
 
+		public async Task<bool> IsNasaAvailable()
+		{
+			return await CrossConnectivity.Current.IsReachable(Constants.NasaEndpoint);
+		}
+
 		public async Task<Apod> GetAstronomicPictureOf(DateTime? theDay = null)
 		{
 			var date = theDay.GetValueOrDefault(DateTime.Now);
@@ -43,7 +49,7 @@ namespace HuePod
 		public async Task<List<Apod>> GetLastAstronomicPictures(int days = 7)
 		{
 			var apod = await GetAstronomicPictureOf();
-			var list = new List<Apod>();
+			var list = new List<Apod>(days);
 			list.Add(apod);
 			for (var i = 1; i < days; i++)
 			{

@@ -10,7 +10,7 @@ using HuePod.Nasa;
 
 namespace HuePod.Droid
 {
-	[Activity(Label = "Huepod", 
+	[Activity(Label = "Appod", 
         MainLauncher = true, 
         Icon = "@mipmap/icon", 
         Theme = "@style/ApodTheme")]
