@@ -5,7 +5,9 @@ using Acr.UserDialogs;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.Design.Widget;
 using Android.Support.V7.App;
+using Android.Support.V7.Widget;
 using Android.Widget;
 using HuePod.Nasa;
 
@@ -18,8 +20,9 @@ namespace HuePod.Droid
 	public class ApodListActivity : AppCompatActivity
     { 
 		private List<Apod> _apods;
-		private ListView _apodsListView;
+		private RecyclerView _apodsView;
 		private Service _service;
+		private FloatingActionButton _fab;
 
 		protected override async void OnCreate(Bundle savedInstanceState)
 		{
@@ -44,22 +47,30 @@ namespace HuePod.Droid
 
 		private void FindViews()
 		{
-			_apodsListView = FindViewById<ListView>(Resource.Id.apodsListView);
+			_apodsView = FindViewById<RecyclerView>(Resource.Id.apodsListView);
+			_fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
 		}
 
 		private void WireEvents()
 		{
-			_apodsListView.ItemClick += (sender, e) =>
+			_fab.Click += (s, a) =>
 			{
-				var apod = _apods[e.Position];
-				if (apod.MediaType == "image")
+				var today = DateTime.Today;
+				var picker = new DatePickerDialog(this, (ss, aa) =>
 				{
-					StartDetailActivity(apod.Date);
-				}
-				else 
-				{
-					StartActivity(new Intent(Intent.ActionView, Android.Net.Uri.Parse(apod.Url)));
-				}
+					System.Diagnostics.Debug.WriteLine($"{aa.Date:dd/MM/yyyy} - {today:dd/MM/yyyy}");
+					if (aa.Date <= today)
+					{
+						StartDetailActivity(aa.Date);
+					}
+					else
+					{
+						var t = Toast.MakeText(this, "Oh! I can't predict the future", ToastLength.Short);
+						t.Show();
+					}
+
+				}, today.Year, today.Month - 1, today.Day);
+				picker.Show();
 			};
 		}
 
@@ -73,13 +84,29 @@ namespace HuePod.Droid
 		private async Task LoadLastPictures()
 		{
 			_apods = await _service.GetLastAstronomicPictures(10);
-			var adapter = new ApodListAdapter(this, _apods.ToArray());
 
-			_apodsListView.Adapter = adapter;
+			var adapter = new ApodsAdapter(this, _apods.ToArray());
+
+			adapter.ApodClick += (sender, position) =>
+			{
+				var apod = _apods[position];
+				if (apod.MediaType == "image")
+				{
+					StartDetailActivity(apod.Date);
+				}
+				else 
+				{
+					StartActivity(new Intent(Intent.ActionView, Android.Net.Uri.Parse(apod.Url)));
+				}
+			};
+
+			_apodsView.SetAdapter( adapter);
+			_apodsView.SetLayoutManager(new LinearLayoutManager(this));
 		}
 
 		public override bool OnCreateOptionsMenu(Android.Views.IMenu menu)
 		{
+			
 			MenuInflater.Inflate(Resource.Menu.main_menu, menu);
 			return true;
 		}

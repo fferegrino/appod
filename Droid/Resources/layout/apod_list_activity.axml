@@ -4,12 +4,18 @@
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/apodsListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+<!--
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/apodsListView" />
+	-->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -17,6 +23,9 @@
         app:layout_anchorGravity="bottom|right|end"
         android:layout_margin="16dp"
         app:elevation="6dp"
+        app:layout_behavior="HuePod.Droid.FabScrollAwareBehavior"
         app:layout_anchor="@id/apodsListView"
-        android:src="@drawable/calendar" />
+        android:src="@drawable/calendar"
+        app:backgroundTint="@color/primary_color"
+        android:tint="@color/accent" />
 </android.support.design.widget.CoordinatorLayout>

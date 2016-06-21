@@ -133,6 +133,7 @@
     <Compile Include="Custom\Snsr\IFilter.cs" />
     <Compile Include="Custom\Snsr\TiltSensor.cs" />
     <Compile Include="ApodAboutActivity.cs" />
+    <Compile Include="FabScrollAwareBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
