@@ -9,6 +9,7 @@ using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 
@@ -16,7 +17,7 @@ namespace HuePod.Droid
 {
 	[Activity(Label = "About",
 		Theme = "@style/ApodTheme")]
-	public class ApodAboutActivity : Activity
+	public class ApodAboutActivity : AppCompatActivity
 	{
 		public static Typeface CustomFont;
 

@@ -5,6 +5,7 @@ using Acr.UserDialogs;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.V7.App;
 using Android.Widget;
 using HuePod.Nasa;
 
@@ -14,7 +15,7 @@ namespace HuePod.Droid
         MainLauncher = true, 
         Icon = "@mipmap/icon", 
         Theme = "@style/ApodTheme")]
-	public class ApodListActivity : Activity
+	public class ApodListActivity : AppCompatActivity
     { 
 		private List<Apod> _apods;
 		private ListView _apodsListView;
@@ -35,6 +36,8 @@ namespace HuePod.Droid
 			_service = new Service();
 
 			await LoadLastPictures();
+
+
 
 			WireEvents();
 		}
@@ -83,26 +86,26 @@ namespace HuePod.Droid
 
 		public override bool OnOptionsItemSelected(Android.Views.IMenuItem item)
 		{
-			if (item.ItemId == Resource.Id.open_calendar_menu)
-			{
-				var today = DateTime.Today;
-				var picker = new DatePickerDialog(this, (s, a) =>
-				{
-					System.Diagnostics.Debug.WriteLine($"{a.Date:dd/MM/yyyy} - {today:dd/MM/yyyy}");
-					if (a.Date <= today)
-					{
-						StartDetailActivity(a.Date);
-					}
-					else 
-					{
-						var t = Toast.MakeText(this, "Oh! I can't predict the future", ToastLength.Short);
-						t.Show();
-					}
+			//if (item.ItemId == Resource.Id.open_calendar_menu)
+			//{
+			//	var today = DateTime.Today;
+			//	var picker = new DatePickerDialog(this, (s, a) =>
+			//	{
+			//		System.Diagnostics.Debug.WriteLine($"{a.Date:dd/MM/yyyy} - {today:dd/MM/yyyy}");
+			//		if (a.Date <= today)
+			//		{
+			//			StartDetailActivity(a.Date);
+			//		}
+			//		else 
+			//		{
+			//			var t = Toast.MakeText(this, "Oh! I can't predict the future", ToastLength.Short);
+			//			t.Show();
+			//		}
 
-				}, today.Year, today.Month - 1, today.Day);
-				picker.Show();
-				return true;
-			}
+			//	}, today.Year, today.Month - 1, today.Day);
+			//	picker.Show();
+			//	return true;
+			//}
 
 			if (item.ItemId == Resource.Id.view_about_menu)
 			{

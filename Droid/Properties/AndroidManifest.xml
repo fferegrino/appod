@@ -4,5 +4,5 @@
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="Appod" android:debuggable="false" android:icon="@mipmap/icon"></application>
+	<application android:label="Appod" android:icon="@mipmap/icon"></application>
 </manifest>

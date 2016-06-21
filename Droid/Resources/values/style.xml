@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<!-- Inherit from the light Material Theme -->
-	<style name="ApodTheme" parent="android:Theme.Material.Light">
+	<style name="ApodTheme" parent="Theme.AppCompat.Light">
 		<!-- Override the app bar color -->
 		<item name="android:colorPrimary">@color/primary_color</item>
 		<!-- Override the color of UI controls -->
@@ -9,7 +9,7 @@
 		<item name="android:datePickerDialogTheme">@style/ApodDatePickerTheme</item>
 	</style>
 	
-	<style name="ApodDatePickerTheme" parent="android:Theme.Material.Light.Dialog">
+	<style name="ApodDatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
 		<item name="android:colorAccent">@color/dark_primary_color</item>
 	</style>
 

@@ -17,12 +17,13 @@ using Java.Net;
 using Square.Picasso;
 using Environment = Android.OS.Environment;
 using File = Java.IO.File;
+using Android.Support.V7.App;
 
 namespace HuePod.Droid
 {
 	[Activity(Label = "POD detail",
 		Theme = "@style/ApodTheme")]
-	public class ApodDetailActivity : Activity
+	public class ApodDetailActivity : AppCompatActivity
 	{
 		const int SaveStoragePermission = 100 << 2;
 		public static Typeface CustomFont;
@@ -73,7 +74,7 @@ namespace HuePod.Droid
 			_descriptionView.Text = apod.Explanation;
 			_descriptionView.Typeface = CustomFont;
 
-			ActionBar.Title = apod.Date.ToShortDateString();
+			Title = apod.Date.ToShortDateString();
 			if (apod.Copyright != null)
 			{
 				_copyrightView.Text = "Copyright: " + apod.Copyright;

@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<!--
     <item android:id="@+id/open_calendar_menu"
           android:icon="@drawable/calendar"
           android:title="@string/select_day_menu" 
 			android:showAsAction="always"/>
-
+	-->
 
     <item android:id="@+id/view_about_menu"
           android:icon="@drawable/calendar"
