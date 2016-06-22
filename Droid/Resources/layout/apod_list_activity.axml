@@ -20,12 +20,12 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchorGravity="bottom|right|end"
         android:layout_margin="16dp"
+        android:src="@drawable/calendar"
+        android:tint="@color/text_color"
+        app:backgroundTint="@color/primary_color"
         app:elevation="6dp"
         app:layout_behavior="HuePod.Droid.FabScrollAwareBehavior"
         app:layout_anchor="@id/apodsListView"
-        android:src="@drawable/calendar"
-        app:backgroundTint="@color/primary_color"
-        android:tint="@color/accent" />
+        app:layout_anchorGravity="bottom|right|end" />
 </android.support.design.widget.CoordinatorLayout>

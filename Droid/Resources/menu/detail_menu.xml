@@ -8,6 +8,5 @@
 		app:showAsAction="always" />
 	<item android:id="@+id/save_apod" 
 		android:icon="@drawable/download" 
-		android:title="@string/save_apod_menu" 
-		app:showAsAction="always" />
+		android:title="@string/save_apod_menu"  />
 </menu>
