@@ -11,17 +11,18 @@ using UIKit;
 
 namespace HuePod.iOS
 {
-    [Register ("ViewController")]
-    partial class ViewController
+    [Register ("ApodTableViewCell")]
+    partial class ApodTableViewCell
     {
         [Outlet]
-        UIKit.UIButton Button { get; set; }
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel apodTitleLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (Button != null) {
-                Button.Dispose ();
-                Button = null;
+            if (apodTitleLabel != null) {
+                apodTitleLabel.Dispose ();
+                apodTitleLabel = null;
             }
         }
     }
