@@ -11,19 +11,19 @@ using UIKit;
 
 namespace HuePod.iOS
 {
-    [Register ("ApodTableViewCell")]
-    partial class ApodTableViewCell
-    {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel apodTitleLabel { get; set; }
+	[Register ("ApodTableViewCell")]
+	partial class ApodTableViewCell
+	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel apodTitleLabel { get; set; }
 
-        void ReleaseDesignerOutlets ()
-        {
-            if (apodTitleLabel != null) {
-                apodTitleLabel.Dispose ();
-                apodTitleLabel = null;
-            }
-        }
-    }
+		void ReleaseDesignerOutlets ()
+		{
+			if (apodTitleLabel != null) {
+				apodTitleLabel.Dispose ();
+				apodTitleLabel = null;
+			}
+		}
+	}
 }
