@@ -23,6 +23,8 @@ namespace HuePod.iOS
 				var title = string.Format("{0} clicks!", count++);
 				Button.SetTitle(title, UIControlState.Normal);
 			};
+
+
 		}
 
 		public override void DidReceiveMemoryWarning()
