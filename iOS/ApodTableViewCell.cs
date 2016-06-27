@@ -11,5 +11,9 @@ namespace HuePod.iOS
         }
 
 		public UILabel ApodTitleLabel => apodTitleLabel;
+
+		public UILabel ApodDateLabel => apodDateLabel;
+
+		public UIImageView ApodImageView => apodImageView;
     }
 }
