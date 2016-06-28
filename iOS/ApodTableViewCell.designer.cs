@@ -11,37 +11,35 @@ using UIKit;
 
 namespace HuePod.iOS
 {
-    [Register ("ApodTableViewCell")]
-    partial class ApodTableViewCell
-    {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel apodDateLabel { get; set; }
+	[Register ("ApodTableViewCell")]
+	partial class ApodTableViewCell
+	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel apodDateLabel { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView apodImageView { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView apodImageView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel apodTitleLabel { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel apodTitleLabel { get; set; }
 
-        void ReleaseDesignerOutlets ()
-        {
-            if (apodDateLabel != null) {
-                apodDateLabel.Dispose ();
-                apodDateLabel = null;
-            }
-
-            if (apodImageView != null) {
-                apodImageView.Dispose ();
-                apodImageView = null;
-            }
-
-            if (apodTitleLabel != null) {
-                apodTitleLabel.Dispose ();
-                apodTitleLabel = null;
-            }
-        }
-    }
+		void ReleaseDesignerOutlets ()
+		{
+			if (apodDateLabel != null) {
+				apodDateLabel.Dispose ();
+				apodDateLabel = null;
+			}
+			if (apodImageView != null) {
+				apodImageView.Dispose ();
+				apodImageView = null;
+			}
+			if (apodTitleLabel != null) {
+				apodTitleLabel.Dispose ();
+				apodTitleLabel = null;
+			}
+		}
+	}
 }
