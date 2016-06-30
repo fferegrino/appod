@@ -3,8 +3,8 @@ namespace HuePod
 {
 	public static class Constants
 	{
-		public const string AkavacheAppName = "APPNAME"; // Replace
-		public const string ApiKey = "DEMO_KEY"; // Replace
+		public const string AkavacheAppName = "HuepodApp"; // Replace
+		public const string ApiKey = "EDfvVgVWn8wGFKjTLYUA1RiSEE070wW4YbO1Fn0A"; // Replace
 		public const string NasaEndpoint = "https://api.nasa.gov/";
 	}
 }

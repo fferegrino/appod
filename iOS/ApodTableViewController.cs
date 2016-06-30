@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using HuePod.Nasa;
 using System.Threading.Tasks;
-using AFNetworking;
+using SDWebImage;
 
 namespace HuePod.iOS
 {
@@ -60,7 +60,11 @@ namespace HuePod.iOS
             //apodCell.ImageView.Image = imageTask.Result;
             if (apod.MediaType == "image")
             {
-                apodCell.ImageView.SetImageUrl(new NSUrl(apod.Url), UIImage.FromFile("achede.jpg"));
+				apodCell.ImageView.ClipsToBounds = true;
+				apodCell.ImageView.ContentMode = UIViewContentMode.ScaleAspectFit;
+				apodCell.ImageView.Image = FromUrl(apod.Url);
+
+				apodCell.ImageView.SetNeedsDisplay();
             }
 
 
@@ -71,25 +75,11 @@ namespace HuePod.iOS
             return apodCell;
         }
 
-
-        /// <summary>
-        /// Loads the image.
-        /// </summary>
-        /// <returns>The image.</returns>
-        /// <param name="imageUrl">Image URL.</param>
-        public static async Task<UIImage> LoadImageFromURL(string imageUrl)
-        {
-            var httpClient = new HttpClient();
-
-            Task<byte[]> contentsTask = httpClient.GetByteArrayAsync(imageUrl);
-
-            // await! control returns to the caller and the task continues to run on another thread
-            var contents = await contentsTask;
-
-            System.Diagnostics.Debug.WriteLine(imageUrl);
-
-            // load from bytes
-            return UIImage.LoadFromData(NSData.FromArray(contents));
-        }
+		static UIImage FromUrl(string uri)
+		{
+			using (var url = new NSUrl(uri))
+			using (var data = NSData.FromUrl(url))
+				return UIImage.LoadFromData(data);
+		}
     }
 }
