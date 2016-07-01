@@ -21,6 +21,7 @@ namespace HuePod.iOS
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			UINavigationBar.Appearance.BarTintColor = UIColor.FromRGBA(244, 244, 255,50);
 			return true;
 		}
 

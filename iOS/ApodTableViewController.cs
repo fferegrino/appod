@@ -17,6 +17,11 @@ namespace HuePod.iOS
 
         public ApodTableViewController(IntPtr handle) : base(handle)
         {
+			Title = "APOD";
+			NavigationItem.Title = "Astronomy Picture Of the Day";
+
+			View.BackgroundColor = UIColor.FromRGB(244,244,255);
+			TableView.BackgroundColor = UIColor.FromRGB(244, 244, 255);
             _apods = new List<Apod>();
         }
 
@@ -54,20 +59,15 @@ namespace HuePod.iOS
 
             apodCell.ApodTitleLabel.Text = apod.Title;
             apodCell.ApodDateLabel.Text = $"{apod.Date:yyyy MMM dd}";
+			apodCell.BackgroundColor = UIColor.FromRGB(244, 244, 255);
 
             //var imageTask = LoadImageFromURL(apod.Url);
             //imageTask.Wait();
             //apodCell.ImageView.Image = imageTask.Result;
             if (apod.MediaType == "image")
             {
-				apodCell.ImageView.ClipsToBounds = true;
-				apodCell.ImageView.ContentMode = UIViewContentMode.ScaleAspectFit;
-				apodCell.ImageView.Image = FromUrl(apod.Url);
-
-				apodCell.ImageView.SetNeedsDisplay();
+				apodCell.ApodImageView.SetImage(new NSUrl(apod.Url));
             }
-
-
 
             //[imageView setImageWithURLRequest: request placeholderImage: nil success:^ (NSURLRequest * request, NSHTTPURLResponse * response, UIImage * image) {
             //blockImageView.image = image; } failure: nil];
