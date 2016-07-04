@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.thatcsharpguy.appod" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="2.0" package="com.thatcsharpguy.appod" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="23" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="Appod" android:icon="@mipmap/icon"></application>
+	<application android:label="Appod" android:debuggable="false" android:icon="@mipmap/icon"></application>
 </manifest>

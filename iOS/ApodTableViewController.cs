@@ -14,6 +14,7 @@ namespace HuePod.iOS
 
         private List<Apod> _apods;
         private Service _service;
+		private int _selected;
 
         public ApodTableViewController(IntPtr handle) : base(handle)
         {
@@ -28,6 +29,22 @@ namespace HuePod.iOS
             TableView.EstimatedRowHeight = 140;
             _apods = new List<Apod>();
         }
+
+		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+		{
+			_selected = indexPath.Row;
+			this.PerformSegue("SelectedApodSegue", this);
+		}
+
+		public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+		{
+			if (segue.Identifier.Equals("SelectedApodSegue"))
+			{
+				var controller = segue.DestinationViewController as ApodDetailViewController;
+				controller.Apod = _apods[_selected];
+			}
+		}
+
 
         public override async void ViewDidLoad()
         {

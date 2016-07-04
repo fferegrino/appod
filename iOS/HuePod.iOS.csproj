@@ -185,6 +185,10 @@
     </Compile>
     <Compile Include="ApodTableViewController.cs" />
     <Compile Include="ApodTableViewCell.cs" />
+    <Compile Include="ApodDetailViewController.cs" />
+    <Compile Include="ApodDetailViewController.designer.cs">
+      <DependentUpon>ApodDetailViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\HuePod.csproj">
