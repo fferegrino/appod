@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBE-Ac-vcx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBE-Ac-vcx">
                                 <rect key="frame" x="224" y="285" width="152" height="30"/>
                                 <state key="normal" title="Hello World, Click Me!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,13 +48,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ApodTableViewCell" rowHeight="400" id="27" customClass="ApodTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="600" height="400"/>
+                                <rect key="frame" x="0.0" y="22" width="600" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="27" id="28">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="399"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="399.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="575" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="59" propertyAccessControl="none">
+                                        <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="575" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="59" propertyAccessControl="none" misplaced="YES">
                                             <rect key="frame" x="150" y="47" width="300" height="300"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="300" id="ATI-4b-q7t"/>
@@ -67,7 +67,7 @@
                                                 <rect key="frame" x="77" y="29" width="300" height="321"/>
                                             </variation>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apod Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxE-Ma-zsv">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apod Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxE-Ma-zsv" misplaced="YES">
                                             <rect key="frame" x="38" y="357" width="524" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,7 +76,7 @@
                                                 <rect key="frame" x="187.5" y="359" width="78.5" height="20.5"/>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Apod Date" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="54">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Apod Date" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="54" misplaced="YES">
                                             <rect key="frame" x="259" y="18" width="82" height="21"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -85,15 +85,16 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="xxE-Ma-zsv" firstAttribute="top" secondItem="59" secondAttribute="bottom" constant="10" id="FL8-kf-b0r"/>
-                                        <constraint firstItem="59" firstAttribute="centerX" secondItem="28" secondAttribute="centerX" id="KUA-2w-dWc"/>
-                                        <constraint firstItem="54" firstAttribute="centerX" secondItem="28" secondAttribute="centerX" id="LoK-Ar-IHR"/>
-                                        <constraint firstItem="59" firstAttribute="centerX" secondItem="28" secondAttribute="centerX" id="Tu4-fe-bEp"/>
-                                        <constraint firstItem="xxE-Ma-zsv" firstAttribute="leading" secondItem="28" secondAttribute="leadingMargin" constant="30" id="UZu-vt-T1j"/>
-                                        <constraint firstItem="54" firstAttribute="top" secondItem="28" secondAttribute="topMargin" constant="10" id="WEh-yT-gMa"/>
-                                        <constraint firstItem="59" firstAttribute="top" secondItem="54" secondAttribute="bottom" constant="8" id="Y4x-pE-agI"/>
-                                        <constraint firstItem="59" firstAttribute="centerX" secondItem="xxE-Ma-zsv" secondAttribute="centerX" id="ooP-XC-gGZ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="xxE-Ma-zsv" secondAttribute="trailing" constant="30" id="zHG-Gn-Z93"/>
+                                        <constraint id="77" firstItem="54" firstAttribute="top" secondItem="28" secondAttribute="top" constant="18"/>
+                                        <constraint id="78" firstItem="59" firstAttribute="centerX" secondItem="28" secondAttribute="centerX"/>
+                                        <constraint id="79" firstItem="59" firstAttribute="top" secondItem="54" secondAttribute="bottom" constant="8"/>
+                                        <constraint id="80" firstItem="59" firstAttribute="top" secondItem="54" secondAttribute="bottom" constant="8"/>
+                                        <constraint id="81" firstItem="xxE-Ma-zsv" firstAttribute="top" secondItem="59" secondAttribute="bottom" constant="10"/>
+                                        <constraint id="82" firstItem="xxE-Ma-zsv" firstAttribute="top" secondItem="59" secondAttribute="bottom" constant="10"/>
+                                        <constraint id="83" firstItem="28" firstAttribute="bottom" secondItem="xxE-Ma-zsv" secondAttribute="bottom" constant="21"/>
+                                        <constraint id="84" firstItem="xxE-Ma-zsv" firstAttribute="leading" secondItem="28" secondAttribute="leading" constant="38"/>
+                                        <constraint id="85" firstItem="28" firstAttribute="trailing" secondItem="xxE-Ma-zsv" secondAttribute="trailing" constant="38"/>
+                                        <constraint id="86" firstItem="xxE-Ma-zsv" firstAttribute="leading" secondItem="28" secondAttribute="leading" constant="38"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -120,7 +121,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L9p-aI-0Q6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IDc-mL-kZs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="880" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -133,4 +134,7 @@
             <point key="canvasLocation" x="1274" y="308"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="achede.jpg" width="680" height="453"/>
+    </resources>
 </document>

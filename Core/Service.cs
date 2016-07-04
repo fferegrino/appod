@@ -39,7 +39,12 @@ namespace HuePod
 		public async Task<Apod> GetAstronomicPictureOf(DateTime? theDay = null)
 		{
 			var date = theDay.GetValueOrDefault(DateTime.Now);
-			Func<Task<Apod>> func = () => _api.GetAstronomicPictureOfSomeDay(date);
+			Func<Task<Apod>> func = async () =>
+			{
+			    var ap = await _api.GetAstronomicPictureOfSomeDay(date);
+			    ap.CloudinaryUrl = "https://res.cloudinary.com/appod/image/fetch/c_limit,h_400,w_800/" + ap.Url;
+                return ap;
+			};
 
 			var apod = await BlobCache.LocalMachine.GetOrFetchObject("pic" + $"{date:yyyyMMdd}",func);
 
@@ -57,6 +62,13 @@ namespace HuePod
 			}
 			return list;
 		}
+
+	    public async Task ClearAll()
+	    {
+	        await BlobCache.LocalMachine.InvalidateAll();
+	        await BlobCache.LocalMachine.Vacuum();
+
+	    }
 	}
 
 	internal class ApodDateFormatter : IUrlParameterFormatter

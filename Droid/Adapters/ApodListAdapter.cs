@@ -116,7 +116,7 @@ namespace HuePod.Droid
 
 			if (apod.MediaType == "image")
 			{
-				Picasso.With(_context).Load(apod.Url).Into(hldr.Image);
+				Picasso.With(_context).Load(apod.CloudinaryUrl).Into(hldr.Image);
 			}
 			else if (apod.MediaType == "video")
 			{

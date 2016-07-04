@@ -15,6 +15,8 @@ namespace HuePod.Nasa
 		public string  ServiceVersion{ get; set; }
 		public string Title { get; set; }
 		public string Url { get; set; }
+        [JsonIgnore]
+	    public string CloudinaryUrl { get; set; }
 	}
 }
 

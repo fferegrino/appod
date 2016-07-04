@@ -22,6 +22,10 @@ namespace HuePod.iOS
 
 			View.BackgroundColor = UIColor.FromRGB(244,244,255);
 			TableView.BackgroundColor = UIColor.FromRGB(244, 244, 255);
+
+
+            TableView.RowHeight = UITableView.AutomaticDimension;
+            TableView.EstimatedRowHeight = 140;
             _apods = new List<Apod>();
         }
 
