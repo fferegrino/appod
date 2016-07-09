@@ -7,20 +7,48 @@ using HuePod.Nasa;
 using UIKit;
 
 using SDWebImage;
+using CoreAnimation;
 
 namespace HuePod.iOS
 {
 	public partial class ApodDetailViewController : UIViewController
 	{
 		public Apod Apod { get; set; }
-		public ApodDetailViewController (IntPtr handle) : base (handle)
+		public ApodDetailViewController(IntPtr handle) : base(handle)
 		{
 		}
 
 		public override void ViewDidLoad()
 		{
-			//DescriptionLabel.Text = Apod.Explanation;
-			//FullImage.SetImage(new NSUrl(Apod.HdUrl));
+			DescriptionLabel.Text = Apod.Explanation;
+			FullImage.SetImage(new NSUrl(Apod.HdUrl));
+
+
+			Title = $"{Apod.Date:yyyy MMM dd}";
+
+			//var g = GreyGradient();
+			//g.Frame = BgView.Frame;
+
+			//BgView.Layer.InsertSublayer(g, 0);
+		}
+
+
+		//Metallic grey gradient background
+		CAGradientLayer GreyGradient()
+		{
+
+			UIColor colorOne = new UIColor(0, 0, 0, 0);
+			UIColor colorTwo = new UIColor(0, 0, 0, (System.nfloat)0.8);
+
+			var stopOne = new NSNumber(0.5);
+
+			CAGradientLayer headrLayer = new CAGradientLayer();
+			headrLayer.Colors = new CoreGraphics.CGColor[] { colorOne.CGColor, colorTwo.CGColor };
+			headrLayer.Locations = new NSNumber[] { stopOne };
+			return headrLayer;
+
 		}
 	}
+
+
 }
