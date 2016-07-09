@@ -15,58 +15,69 @@ using Android.Widget;
 
 namespace HuePod.Droid
 {
-	[Activity(Label = "About",
-		Theme = "@style/ApodTheme")]
-	public class ApodAboutActivity : AppCompatActivity
-	{
-		public static Typeface CustomFont;
+    [Activity(Label = "About",
+        Theme = "@style/ApodTheme")]
+    public class ApodAboutActivity : AppCompatActivity
+    {
+        public static Typeface CustomFont;
 
-		TextView _aboutTextView;
-		TextView _authorTextView;
-		TextView _sourceTextView;
-		TextView _titleTextView;
+        TextView _aboutTextView;
+        TextView _authorTextView;
+        TextView _sourceTextView;
+        TextView _titleTextView;
 
-		protected override void OnCreate(Bundle savedInstanceState)
-		{
-			base.OnCreate(savedInstanceState);
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
 
-			SetContentView(Resource.Layout.apod_about_activity);
+            SetContentView(Resource.Layout.apod_about_activity);
 
-			FindViews();
+            FindViews();
 
-			if (CustomFont == null)
-			{
-				CustomFont = Typeface.CreateFromAsset(Assets, "fonts/Tinos-Regular.ttf");
-			}
+            if (CustomFont == null)
+            {
+                CustomFont = Typeface.CreateFromAsset(Assets, "fonts/Tinos-Regular.ttf");
+            }
 
-			_aboutTextView.Typeface = CustomFont;
-			_authorTextView.Typeface = CustomFont;
-			_titleTextView.Typeface = CustomFont;
-			_sourceTextView.Typeface = CustomFont;
+            _aboutTextView.Typeface = CustomFont;
+            _authorTextView.Typeface = CustomFont;
+            _titleTextView.Typeface = CustomFont;
+            _sourceTextView.Typeface = CustomFont;
 
-			_sourceTextView.Click += (sender, e) =>
-			{
-				StartActivity(
-					new Intent(Intent.ActionView, Android.Net.Uri.Parse("https://github.com/fferegrino/appod")));
-			};
+            _sourceTextView.Click += (sender, e) =>
+            {
+                StartActivity(
+                    new Intent(Intent.ActionView, Android.Net.Uri.Parse("https://github.com/fferegrino/appod")));
+            };
 
-			_authorTextView.Click += (sender, e) =>
-			{
-				StartActivity(
-					new Intent(Intent.ActionView, Android.Net.Uri.Parse("http://thatcsharpguy.com")));
-			};
+            _authorTextView.Click += (sender, e) =>
+            {
+                StartActivity(
+                    new Intent(Intent.ActionView, Android.Net.Uri.Parse("http://thatcsharpguy.com")));
+            };
 
-			_authorTextView.TextFormatted = Android.Text.Html.FromHtml(Resources.GetString(Resource.String.author_text));
-			_sourceTextView.TextFormatted = Android.Text.Html.FromHtml(Resources.GetString(Resource.String.source_code_text));
-		}
+            _authorTextView.TextFormatted = Android.Text.Html.FromHtml(Resources.GetString(Resource.String.author_text));
+            _sourceTextView.TextFormatted = Android.Text.Html.FromHtml(Resources.GetString(Resource.String.source_code_text));
 
-		void FindViews()
-		{
-			_aboutTextView = FindViewById<TextView>(Resource.Id.aboutTextView);
-			_authorTextView = FindViewById<TextView>(Resource.Id.authorTextView);
-			_titleTextView = FindViewById<TextView>(Resource.Id.titleTextView);
-			_sourceTextView = FindViewById<TextView>(Resource.Id.sourceTextView);
-		}
-}
+#if DEBUG
+            var b = FindViewById<Button>(Resource.Id.eraseButton);
+            b.Visibility = ViewStates.Visible;
+            b.Click += async (s, a) =>
+            {
+                Service _service = new Service();
+                await _service.ClearAll();
+            };
+
+#endif
+        }
+
+        void FindViews()
+        {
+            _aboutTextView = FindViewById<TextView>(Resource.Id.aboutTextView);
+            _authorTextView = FindViewById<TextView>(Resource.Id.authorTextView);
+            _titleTextView = FindViewById<TextView>(Resource.Id.titleTextView);
+            _sourceTextView = FindViewById<TextView>(Resource.Id.sourceTextView);
+        }
+    }
 }
 

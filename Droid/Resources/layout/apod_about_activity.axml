@@ -36,4 +36,10 @@
         android:textSize="@dimen/text_size"
         android:id="@+id/sourceTextView"
         android:layout_gravity="center_horizontal" />
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eraseButton"
+        android:visibility="invisible" />
 </LinearLayout>
